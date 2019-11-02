@@ -12,19 +12,18 @@ const CardElement = ({ className, children }) => (
 );
 
 const CardStyled = Styled(CardElement)`
-    color: tomato;
     square:${props => props.square};
     padding:${props => props.padding};
     margin:${props => props.margin};
     background-color:${props => props.background};
     box-shadow:${boxShadow}
 `;
-export const Card = props => (
+const Card = props => (
   <ThemeProvider theme={{ mode: "light" }}>
     <CardStyled {...props} />
   </ThemeProvider>
 );
-
+export default Card;
 CardStyled.propTypes = {
   children: PropTypes.node.isRequired,
   square: PropTypes.bool,
