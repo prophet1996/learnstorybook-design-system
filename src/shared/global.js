@@ -1,5 +1,5 @@
-import { createGlobalStyle, css } from "styled-components";
-import { color, typography } from "./styles";
+import { createGlobalStyle, css } from 'styled-components';
+import { color, typography } from './styles';
 
 export const bodyStyles = css`
   font-family: ${typography.type.primary};
@@ -109,6 +109,7 @@ export const bodyStyles = css`
       opacity: 0;
     }
   }
+ 
 `;
 
 export const GlobalStyle = createGlobalStyle`
@@ -116,8 +117,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     ${bodyStyles}
-
-    margin: 0;
+    margin: 0px;
     overflow-y: auto;
     overflow-x: hidden;
   }
