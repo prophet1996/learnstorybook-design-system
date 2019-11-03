@@ -1,15 +1,16 @@
-import React from "react";
+import React from 'react';
 // import { withKnobs, select, boolean } from "@storybook/addon-knobs";
-import Banner from "./Banner";
+import Banner from './Banner';
+
 export default {
-  title: "twitch Components|Banner",
-  parameters: { Components: Banner }
+  title: 'twitch Components|Banner',
+  parameters: { Components: Banner },
 };
-export const standard = props => (
+export const standard = () => (
   <Banner
     margin="20px"
     heading=" Join the Twitch community!"
     content="Discover the best live streams anywhere."
-    callToAction="Sign Up!"
+    callToAction={{ text: 'Sign up', onclick: () => {} }}
   ></Banner>
 );

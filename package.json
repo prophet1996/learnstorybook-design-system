@@ -18,7 +18,8 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
-    "release": "auto shipit"
+    "release": "auto shipit",
+    "lint": "eslint src/**/*.js src/**/*.jsx --fix"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -46,6 +47,10 @@
     "@storybook/addons": "^5.2.5",
     "@storybook/react": "^5.2.5",
     "auto": "^7.12.3",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-react": "^7.16.0",
     "prettier": "^1.18.2"
   },
   "babel": {
