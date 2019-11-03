@@ -19,7 +19,7 @@ export const textColor = theme('mode', {
 });
 
 export const backgroundColor = theme('mode', {
-  light: '#fafafa',
+  light: '#efeff1',
   dark: '#222',
 });
 
