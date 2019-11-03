@@ -32,6 +32,7 @@ const alignItems = {
   inherit: 'inherit',
   unset: 'unset',
 };
+
 export const device = {
   mobileS: `(min-width: ${screenSize.mobileS})`,
   mobileM: `(min-width: ${screenSize.mobileM})`,
@@ -48,19 +49,20 @@ const fontSizeTemplate = (str, size) => `${str[0]}${fontSize[size]}rem ${str[1]}
 const fontWeightTemplate = (str, weight) => `${str[0]}${fontWeight[weight]}${str[1]}`;
 const alignItemsTemplate = (str, align) => `${str[0]}${alignItems[align]}${str[1]}`;
 const spacingTemplate = (str, type, spacing, pos) => {
-  console.log('TAG', str, type, spacing, pos);
   if (!pos) return `${type}: ${spacing}rem!important`;
   let position;
-  try { position = pos.toLowerCase(); } catch (e) { return e; }
-  switch (position.toLowerCase()) {
-    case 'y': return `${type}: ${spacing}rem 0rem!important`;
-    case 'x': return `${type}: 0rem ${spacing}rem!important`;
-    case 'top': return `${type}-top: ${spacing}rem!important`;
-    case 'right': return `${type}-right: ${spacing}rem!important`;
-    case 'bottom': return `${type}-bottom: ${spacing}rem!important`;
-    case 'left': return `${type}-left: ${spacing}rem!important`;
+  try {
+    position = pos.toLowerCase();
+  } catch (e) {
+    return e;
+  }
+  switch (position) {
+    case 'y':
+      return `${type}: ${spacing}rem 0rem!important`;
+    case 'x':
+      return `${type}: 0rem ${spacing}rem!important`;
     default:
-      return `${type}:error;`;
+      return `${type}-${position}: ${spacing}rem!important;`;
   }
 };
 const spaingType = { margin: 'margin', padding: 'padding' };
@@ -71,4 +73,6 @@ export const styles = {
   alignItems: (align) => alignItemsTemplate`align-items: ${align}!important`,
   margin: (margin, pos) => spacingTemplate`${spaingType.margin}${margin}${pos}`,
   padding: (padding, pos) => spacingTemplate`${spaingType.padding}${padding}${pos}`,
+  direction: (direction, pos) => `${direction}: ${pos}px!important;`,
+  uppercase: 'text-transform: uppercase!important;',
 };

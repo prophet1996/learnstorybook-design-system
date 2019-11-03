@@ -8,7 +8,6 @@ export default {
 };
 export const standard = () => (
   <Banner
-    margin="20px"
     heading=" Join the Twitch community!"
     content="Discover the best live streams anywhere."
     callToAction={{ text: 'Sign up', onclick: () => {} }}

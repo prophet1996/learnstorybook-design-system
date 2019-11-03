@@ -1,13 +1,15 @@
 import React from 'react';
 import Styled, { ThemeProvider, css } from 'styled-components';
 import {
-  boxShadowAccent, accentColor, accentColorActive, accentColorHover,
+  boxShadowAccent,
+  accentColor,
+  accentColorActive,
+  accentColorHover,
 } from '../theme';
 import { styles } from '../styles';
 
-
 export const coreButtonPrimary = css`
-  background-color: ${accentColor};
+  background-color: ${({ secondary }) => (secondary ? "transparent" : accentColor)};
   color: #fff;
   border: none;
   outline: none;
@@ -27,16 +29,15 @@ export const coreButtonPrimary = css`
   width: max-content;
   ${styles.padding(1, 'x')}
   cursor:pointer;
-  :active{
-   background-color: ${accentColorActive};
-   box-shadow:${boxShadowAccent};
+  :active {
+    background-color: ${accentColorActive};
+    box-shadow: ${boxShadowAccent};
   }
-  :hover{
+  :hover {
     background-color: ${accentColorHover};
   }
-  :focus{
-    
-    box-shadow:${boxShadowAccent};
+  :focus {
+    box-shadow: ${boxShadowAccent};
   }
 `;
 
