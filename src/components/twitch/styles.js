@@ -69,15 +69,17 @@ const spacingTemplate = (str, type, spacing, pos) => {
       return `${type}-${position}: ${spacing}rem!important;`;
   }
 };
-const channelStatusColorTemplate = (str, status) => {
+const channelStatusIndicatorTemplate = (str, status) => {
+  let color;
   switch (status) {
     case channelStatuses.online:
-      return 'red';
+      color ='red';
     case channelStatuses.offline:
-      return 'grey';
+      color 'grey';
     default:
-      return 'transparent';
+      color 'transparent';
   }
+  
 };
 const spaingType = { margin: 'margin', padding: 'padding' };
 export const styles = {
