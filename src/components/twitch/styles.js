@@ -32,7 +32,11 @@ const alignItems = {
   inherit: 'inherit',
   unset: 'unset',
 };
-
+const channelStatuses = {
+  online: 'online',
+  offline: 'offline',
+  unknown: 'unknown',
+};
 export const device = {
   mobileS: `(min-width: ${screenSize.mobileS})`,
   mobileM: `(min-width: ${screenSize.mobileM})`,
@@ -65,6 +69,16 @@ const spacingTemplate = (str, type, spacing, pos) => {
       return `${type}-${position}: ${spacing}rem!important;`;
   }
 };
+const channelStatusColorTemplate = (str, status) => {
+  switch (status) {
+    case channelStatuses.online:
+      return 'red';
+    case channelStatuses.offline:
+      return 'grey';
+    default:
+      return 'transparent';
+  }
+};
 const spaingType = { margin: 'margin', padding: 'padding' };
 export const styles = {
   lineHeight: (size) => lineHeightTemplate`line-height: ${size}!important;`,
@@ -75,4 +89,5 @@ export const styles = {
   padding: (padding, pos) => spacingTemplate`${spaingType.padding}${padding}${pos}`,
   direction: (direction, pos) => `${direction}: ${pos}px!important;`,
   uppercase: 'text-transform: uppercase!important;',
+  channelStatusColor: (status) => channelStatusColorTemplate`${status}`,
 };
