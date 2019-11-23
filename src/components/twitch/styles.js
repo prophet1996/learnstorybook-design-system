@@ -32,7 +32,11 @@ const alignItems = {
   inherit: 'inherit',
   unset: 'unset',
 };
-
+const channelStatuses = {
+  online: 'online',
+  offline: 'offline',
+  unknown: 'unknown',
+};
 export const device = {
   mobileS: `(min-width: ${screenSize.mobileS})`,
   mobileM: `(min-width: ${screenSize.mobileM})`,
@@ -65,6 +69,20 @@ const spacingTemplate = (str, type, spacing, pos) => {
       return `${type}-${position}: ${spacing}rem!important;`;
   }
 };
+const channelStatusIndicatorTemplate = (str, status) => {
+  let color;
+  switch (status) {
+    case channelStatuses.online:
+      color = 'red';
+      break;
+    case channelStatuses.offline:
+      color = 'grey';
+      break;
+    default:
+      color = 'transparent';
+  }
+  return color;
+};
 const spaingType = { margin: 'margin', padding: 'padding' };
 export const styles = {
   lineHeight: (size) => lineHeightTemplate`line-height: ${size}!important;`,
@@ -73,6 +91,9 @@ export const styles = {
   alignItems: (align) => alignItemsTemplate`align-items: ${align}!important`,
   margin: (margin, pos) => spacingTemplate`${spaingType.margin}${margin}${pos}`,
   padding: (padding, pos) => spacingTemplate`${spaingType.padding}${padding}${pos}`,
+  // flex direction
   direction: (direction, pos) => `${direction}: ${pos}px!important;`,
   uppercase: 'text-transform: uppercase!important;',
+  channelStatusColor: (status) => channelStatusIndicatorTemplate`${status}`,
+  fullWidth: () => 'width: 100%!important;',
 };

@@ -2,13 +2,15 @@ import React from 'react';
 import Styled, { ThemeProvider } from 'styled-components';
 import Banner from '../Banner';
 import SideNavHeader from './SideNavHeader';
-import SubscribedChannelList from './SideNavHeader';
+import ChannelList from '../ListItem';
 import { backgroundColor } from '../theme';
 import Button from '../Button';
 import { ReactComponent as CollapseIcon } from '../assets/collapse.svg';
 import { styles } from '../styles';
 
 function SideNavElement(props) {
+  const { channelList } = props;
+  console.log('TAG', channelList, 'channelList');
   return (
     <div {...props}>
       <div>
@@ -17,9 +19,9 @@ function SideNavElement(props) {
         </Button>{' '}
       </div>
       <SideNavHeader open signedIn />
-      {/* <ChannelList /> */}
+      <ChannelList channels={channelList} />
       <SideNavHeader open />
-      {/* <ChannelList /> */}
+      <ChannelList channels={channelList} />
       <Banner
         heading=" Join the Twitch community!"
         content="Discover the best live streams anywhere."

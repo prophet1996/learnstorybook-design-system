@@ -32,3 +32,8 @@ export const boxShadowAccent = theme('mode', {
   light: '0 0 6px 0 #772ce8',
   dark: '0 0 6px 0 #772ce8',
 });
+
+export const online = theme('mode', {
+  light: '#e91916',
+  dark: '#e91916',
+});
