@@ -22,21 +22,35 @@ const ChannelListElement = ({ className, channels }) => (
   </div>
 );
 const ChannelElement = Styled.div`
+${styles.padding('0.5', 'left')}
 & > span{
-  height: 25px;
-width: 25px;
+  height: 0.8em;
+width: 0.8em;
 background-color:${({ channelStatus }) => styles.channelStatusColor(channelStatus)} ;
 border-radius: 50%;
 display: inline-block;
+${styles.margin('0.5', 'right')}
+${styles.margin('0.5', 'left')}
+justify-self: end;
 }`;
 const ChannelListStyled = Styled(ChannelListElement)`
    display:flex;
+   justify-content:start;
    align-items:center;
+   :hover {
+    background:#ddd;
+   }
+   ${styles.padding('0.5', 'top')}
+   ${styles.padding('0.5', 'bottom')}
+   ${styles.padding('1.0', 'left')}
+   ${styles.padding('1.0', 'right')}
+   ${styles.fullWidth()}
    & >img{
     max-height:50px;
     border-radius: 50%;
-  display: inline-block;
+    display: inline-block;
   vertical-align: top;
+ 
 }
 
 `;

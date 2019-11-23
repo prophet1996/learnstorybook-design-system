@@ -73,13 +73,15 @@ const channelStatusIndicatorTemplate = (str, status) => {
   let color;
   switch (status) {
     case channelStatuses.online:
-      color ='red';
+      color = 'red';
+      break;
     case channelStatuses.offline:
-      color 'grey';
+      color = 'grey';
+      break;
     default:
-      color 'transparent';
+      color = 'transparent';
   }
-  
+  return color;
 };
 const spaingType = { margin: 'margin', padding: 'padding' };
 export const styles = {
@@ -89,7 +91,9 @@ export const styles = {
   alignItems: (align) => alignItemsTemplate`align-items: ${align}!important`,
   margin: (margin, pos) => spacingTemplate`${spaingType.margin}${margin}${pos}`,
   padding: (padding, pos) => spacingTemplate`${spaingType.padding}${padding}${pos}`,
+  // flex direction
   direction: (direction, pos) => `${direction}: ${pos}px!important;`,
   uppercase: 'text-transform: uppercase!important;',
-  channelStatusColor: (status) => channelStatusColorTemplate`${status}`,
+  channelStatusColor: (status) => channelStatusIndicatorTemplate`${status}`,
+  fullWidth: () => 'width: 100%!important;',
 };
